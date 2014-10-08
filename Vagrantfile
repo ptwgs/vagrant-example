@@ -99,6 +99,33 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #   # You may also specify custom JSON attributes:
   #   chef.json = { mysql_password: "foo" }
   # end
+  config.vm.provision :chef_solo do |chef|
+    chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
+
+    chef.add_recipe "apt"
+    chef.add_recipe "nodejs"
+    chef.add_recipe "ruby_build"
+    chef.add_recipe "rbenv::user"
+    chef.add_recipe "rbenv::vagrant"
+    chef.add_recipe "vim"
+
+    # Install Ruby 2.1.2 and Bundler
+    # Set an empty root password for MySQL to make things simple
+    chef.json = {
+      rbenv: {
+        user_installs: [{
+          user: 'vagrant',
+          rubies: ["2.1.2"],
+          global: "2.1.2",
+          gems: {
+            "2.1.2" => [
+              { name: "bundler" }
+            ]
+          }
+        }]
+      }
+    }
+  end
 
   # Enable provisioning with chef server, specifying the chef server URL,
   # and the path to the validation key (relative to this Vagrantfile).
