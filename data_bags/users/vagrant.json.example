@@ -1,0 +1,4 @@
+{
+  "id": "vagrant",
+  "ssh_keys": "ssh-rsa AAA...2wB vagrant"
+}
