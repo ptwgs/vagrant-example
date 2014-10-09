@@ -111,8 +111,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "apache2"
     chef.add_recipe "git"
 
-    # Install Ruby 2.1.2 and Bundler
-    # Set an empty root password for MySQL to make things simple
     chef.json = {
       rbenv: {
         user_installs: [{
