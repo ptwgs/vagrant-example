@@ -2,7 +2,8 @@
 
 Vagrant project example
 
-## Plugins requirement
+## Plugins
 
-- vagrant-vbguest
+- vagrant-vbguest (optional)
 - vagrant-librarian-chef
+- vagrant-omnibus
