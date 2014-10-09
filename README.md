@@ -1,6 +1,6 @@
-# Deploying Rails
+# Vagrant project example
 
-Vagrant project example
+Simple Vagrant project example used in our internal quick course.
 
 ## Plugins
 
